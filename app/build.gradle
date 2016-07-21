@@ -39,5 +39,8 @@ dependencies {
   // Dagger2
   compile "com.google.dagger:dagger:${daggerVersion}"
   provided "com.google.dagger:dagger-compiler:${daggerVersion}"
+  // Logger
+  compile "com.jakewharton.timber:timber:${timberVersion}"
+  compile "com.tencent.bugly:crashreport:${buglyVersion}"
   testCompile 'junit:junit:4.12'
 }

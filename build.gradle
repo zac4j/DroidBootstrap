@@ -31,4 +31,7 @@ ext {
   // async job
   rxandroidVersion = "1.2.1"
   rxjavaVersion = "1.1.7"
+  // log
+  timberVersion = "4.1.2"
+  buglyVersion = "2.1.9"
 }
