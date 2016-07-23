@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 android {
-  compileSdkVersion 24
-  buildToolsVersion "23.0.3"
+  compileSdkVersion rootProject.ext.compileSdkVersion
+  buildToolsVersion rootProject.ext.buildToolsVersion
   defaultConfig {
     applicationId "com.zac4j.droidbootstrap"
     minSdkVersion 16
@@ -11,8 +11,30 @@ android {
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
   }
-  buildTypes {
+
+  signingConfigs {
+    debug {
+      storeFile file('debug.keystore')
+      storePassword 'android'
+      keyAlias 'android'
+      keyPassword 'android'
+    }
     release {
+      storeFile file('release.jks')
+      storePassword 'zac4ja'
+      keyAlias 'zac4j.com'
+      keyPassword 'zac4ja'
+    }
+  }
+
+  buildTypes {
+    debug {
+      applicationIdSuffix '.development'
+      signingConfig signingConfigs.debug
+    }
+    release {
+      applicationIdSuffix '.release'
+      signingConfig signingConfigs.release
       minifyEnabled false
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
@@ -24,7 +46,7 @@ dependencies {
   androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
     exclude group: 'com.android.support', module: 'support-annotations'
   })
-  compile 'com.android.support:appcompat-v7:24.1.0'
+  compile "com.android.support:appcompat-v7:${supportVersion}"
   compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
   // Retrofit2
   compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"

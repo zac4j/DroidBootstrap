@@ -1,8 +1,8 @@
 package com.zac4j.droidbootstrap.util;
 
 import android.text.TextUtils;
-import com.zac4j.droidbootstrap.data.remote.BaseResponse;
-import com.zac4j.droidbootstrap.ui.view.IBaseView;
+import com.zac4j.droidbootstrap.data.remote.ApiResponse;
+import com.zac4j.droidbootstrap.ui.base.MvpView;
 import retrofit2.Response;
 import rx.Observable;
 import rx.android.schedulers.AndroidSchedulers;
@@ -26,8 +26,8 @@ public class RxUtils {
     };
   }
 
-  public static <T extends BaseResponse> Observable.Transformer<Response<T>, Response<T>> preHandle(
-      final IBaseView view) {
+  public static <T extends ApiResponse> Observable.Transformer<Response<T>, Response<T>> preHandle(
+      final MvpView view) {
     return new Observable.Transformer<Response<T>, Response<T>>() {
       @Override public Observable<Response<T>> call(Observable<Response<T>> observable) {
         return observable.filter(new Func1<Response<T>, Boolean>() {

@@ -7,18 +7,9 @@ import java.io.Serializable;
  * Created by zac on 16-7-21.
  */
 
-public class BaseResponse implements Serializable {
-  private String tag;
+public class ApiResponse implements Serializable {
   private String msg;
   private boolean success;
-
-  public String getTag() {
-    return tag;
-  }
-
-  public void setTag(String tag) {
-    this.tag = tag;
-  }
 
   public String getMsg() {
     return msg;

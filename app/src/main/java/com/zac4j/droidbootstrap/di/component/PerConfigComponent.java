@@ -2,7 +2,7 @@ package com.zac4j.droidbootstrap.di.component;
 
 import com.zac4j.droidbootstrap.di.PerConfig;
 import com.zac4j.droidbootstrap.di.module.ActivityModule;
-import com.zac4j.droidbootstrap.ui.BaseActivity;
+import com.zac4j.droidbootstrap.ui.base.BaseActivity;
 import dagger.Component;
 
 /**

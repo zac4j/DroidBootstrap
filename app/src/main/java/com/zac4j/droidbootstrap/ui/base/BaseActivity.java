@@ -1,4 +1,4 @@
-package com.zac4j.droidbootstrap.ui;
+package com.zac4j.droidbootstrap.ui.base;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
