@@ -36,7 +36,7 @@ public class ApplicationModule {
   }
 
   @Provides @Singleton WebService provideWebService() {
-    return WebService.Creator.create();
+    return WebService.Factory.create();
   }
 
 }

@@ -13,7 +13,7 @@ public interface WebService {
 
   String BASE_URL = "";
 
-  class Creator {
+  class Factory {
     public static WebService create() {
       Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
           .client(new HttpClient().create())
