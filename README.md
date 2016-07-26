@@ -16,7 +16,7 @@ Android Project Template
  - Stetho
 + Log
  - Timber
-+ CrashReport
++ Crash Report
  - [Bugly][bugly]
 + Statistic Service
  - [LeanCloud][lean]
