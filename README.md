@@ -14,3 +14,12 @@ Android Project Template
  - RxJava/RxAndroid
 + Debug:
  - Stetho
++ Log
+ - Timber
++ Crash Report
+ - [Bugly][bugly]
++ Statistic Service
+ - [LeanCloud][lean]
+
+[bugly]:https://bugly.qq.com/v2/
+[lean]:https://leancloud.cn/docs/android_statistics.html
