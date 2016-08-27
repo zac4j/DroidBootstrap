@@ -59,9 +59,9 @@ public class RxUtils {
             int code = tResponse.code();
             T body = tResponse.body();
             if (!isSuccess) {
-              view.showNotice("网络无法连接,请求失败:" + code);
+              view.showError("网络无法连接,请求失败:" + code);
             } else if (!body.isSuccess() && !TextUtils.isEmpty(body.getMsg())) {
-              view.showNotice(body.getMsg());
+              view.showError(body.getMsg());
             }
             Timber.d(body.getMsg());
             return isSuccess;
@@ -72,7 +72,7 @@ public class RxUtils {
             String message = throwable.getMessage();
             Timber.e(throwable, message);
             if (!TextUtils.isEmpty(message)) {
-              view.showNotice("网络请求失败.请重试!");
+              view.showError("网络请求失败.请重试!");
             }
           }
         });
