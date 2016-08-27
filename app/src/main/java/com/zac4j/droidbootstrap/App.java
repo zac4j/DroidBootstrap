@@ -4,7 +4,6 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 import com.facebook.stetho.Stetho;
-import com.tencent.bugly.Bugly;
 import com.tencent.bugly.crashreport.BuglyLog;
 import com.tencent.bugly.crashreport.CrashReport;
 import com.zac4j.droidbootstrap.di.ActivityContext;

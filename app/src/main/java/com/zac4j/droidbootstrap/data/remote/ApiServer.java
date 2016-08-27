@@ -9,19 +9,19 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * Created by zac on 16-7-3.
  */
 
-public interface WebService {
+public interface ApiServer {
 
   String BASE_URL = "";
 
   class Factory {
-    public static WebService create() {
+    public static ApiServer create() {
       Retrofit retrofit = new Retrofit.Builder().baseUrl(BASE_URL)
           .client(new HttpClient().create())
           .addConverterFactory(GsonConverterFactory.create())
           .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
           .build();
 
-      return retrofit.create(WebService.class);
+      return retrofit.create(ApiServer.class);
     }
   }
 }

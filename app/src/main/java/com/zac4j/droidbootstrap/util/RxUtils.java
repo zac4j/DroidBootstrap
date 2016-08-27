@@ -5,6 +5,7 @@ import com.zac4j.droidbootstrap.data.remote.ApiResponse;
 import com.zac4j.droidbootstrap.ui.base.MvpView;
 import retrofit2.Response;
 import rx.Observable;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
 import rx.functions.Func1;
@@ -18,6 +19,22 @@ import timber.log.Timber;
 
 public class RxUtils {
 
+  /**
+   * 解绑 subscription
+   * @param subscription 订阅者对象
+   */
+  public static void unsubscribe(Subscription subscription) {
+    if (subscription == null || subscription.isUnsubscribed()) {
+      return;
+    }
+    subscription.unsubscribe();
+  }
+
+  /**
+   * 配置订阅对象工作线程
+   * @param <T> Observable 对象
+   * @return 已配置好线程的 Observable对象
+   */
   public static <T> Observable.Transformer<T, T> applySchedulers() {
     return new Observable.Transformer<T, T>() {
       @Override public Observable<T> call(Observable<T> tObservable) {
@@ -26,6 +43,12 @@ public class RxUtils {
     };
   }
 
+  /**
+   * 预处理服务端返回的请求数据
+   * @param view mvp view对象
+   * @param <T> 服务端返回的Observable 对象
+   * @return 预处理后的 Observable 对象
+   */
   public static <T extends ApiResponse> Observable.Transformer<Response<T>, Response<T>> preHandle(
       final MvpView view) {
     return new Observable.Transformer<Response<T>, Response<T>>() {

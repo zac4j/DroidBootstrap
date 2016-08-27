@@ -6,5 +6,5 @@ package com.zac4j.droidbootstrap.ui.base;
  */
 
 public interface MvpView {
-  void showNotice(String message);
+  void showError(String message);
 }

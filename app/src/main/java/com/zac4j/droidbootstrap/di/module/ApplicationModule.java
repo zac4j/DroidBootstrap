@@ -3,7 +3,7 @@ package com.zac4j.droidbootstrap.di.module;
 import android.app.Application;
 import android.content.Context;
 import com.google.gson.Gson;
-import com.zac4j.droidbootstrap.data.remote.WebService;
+import com.zac4j.droidbootstrap.data.remote.ApiServer;
 import com.zac4j.droidbootstrap.di.ApplicationContext;
 import dagger.Module;
 import dagger.Provides;
@@ -35,8 +35,8 @@ public class ApplicationModule {
     return new Gson();
   }
 
-  @Provides @Singleton WebService provideWebService() {
-    return WebService.Factory.create();
+  @Provides @Singleton ApiServer provideWebService() {
+    return ApiServer.Factory.create();
   }
 
 }

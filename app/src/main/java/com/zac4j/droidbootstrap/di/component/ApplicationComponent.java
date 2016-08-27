@@ -4,8 +4,8 @@ import android.content.Context;
 
 import com.google.gson.Gson;
 import com.zac4j.droidbootstrap.data.local.PreferencesHelper;
+import com.zac4j.droidbootstrap.data.remote.ApiServer;
 import com.zac4j.droidbootstrap.data.remote.HttpClient;
-import com.zac4j.droidbootstrap.data.remote.WebService;
 import com.zac4j.droidbootstrap.di.ApplicationContext;
 import com.zac4j.droidbootstrap.di.module.ApplicationModule;
 import dagger.Component;
@@ -25,5 +25,5 @@ import javax.inject.Singleton;
 
   HttpClient httpClient();
 
-  WebService webService();
+  ApiServer webService();
 }

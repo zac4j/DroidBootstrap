@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.util.LongSparseArray;
 import android.support.v7.app.AppCompatActivity;
+import android.text.TextUtils;
+import android.widget.Toast;
 import com.zac4j.droidbootstrap.App;
 import com.zac4j.droidbootstrap.di.component.ActivityComponent;
 import com.zac4j.droidbootstrap.di.component.DaggerPerConfigComponent;
@@ -59,6 +61,17 @@ public class BaseActivity extends AppCompatActivity {
 
   ActivityComponent getActivityComponent() {
     return mActivityComponent;
+  }
+
+  /**
+   * Show toast with given message
+   * @param message message to show in the toast
+   */
+  public void showToast(String message) {
+    if (TextUtils.isEmpty(message)) {
+      return;
+    }
+    Toast.makeText(BaseActivity.this, message, Toast.LENGTH_SHORT).show();
   }
 
 }
