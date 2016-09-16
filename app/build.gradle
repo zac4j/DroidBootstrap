@@ -48,7 +48,6 @@ dependencies {
     exclude group: 'com.android.support', module: 'support-annotations'
   })
   compile "com.android.support:appcompat-v7:${supportVersion}"
-  compile 'com.android.support.constraint:constraint-layout:1.0.0-alpha4'
   // Retrofit2
   compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
   compile "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}"
