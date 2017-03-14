@@ -14,12 +14,12 @@ android {
   }
 
   signingConfigs {
-    debug {
-      storeFile file('debug.keystore')
-      storePassword 'android'
-      keyAlias 'android'
-      keyPassword 'android'
-    }
+    //    debug {
+    //      storeFile file('debug.keystore')
+    //      storePassword 'android'
+    //      keyAlias 'android'
+    //      keyPassword 'android'
+    //    }
     release {
       storeFile file('release.jks')
       storePassword 'zac4ja'
@@ -40,7 +40,10 @@ android {
       proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
     }
   }
-  buildToolsVersion '25.0.0'
+
+  lintOptions {
+    abortOnError false
+  }
 }
 
 dependencies {
@@ -51,14 +54,14 @@ dependencies {
   compile "com.android.support:appcompat-v7:${appcompatVersion}"
   // Retrofit2
   compile "com.squareup.retrofit2:retrofit:${retrofitVersion}"
-  compile "com.squareup.retrofit2:adapter-rxjava:${retrofitVersion}"
+  compile "com.squareup.retrofit2:adapter-rxjava2:${retrofitVersion}"
   compile "com.squareup.retrofit2:converter-gson:${retrofitVersion}"
   // Stetho
   compile "com.facebook.stetho:stetho:${stethoVersion}"
   compile "com.facebook.stetho:stetho-okhttp3:${stethoVersion}"
   // Rx
-  compile "io.reactivex:rxandroid:${rxandroidVersion}"
-  compile "io.reactivex:rxjava:${rxjavaVersion}"
+  compile "io.reactivex.rxjava2:rxandroid:${rxandroidVersion}"
+  compile "io.reactivex.rxjava2:rxjava:${rxjavaVersion}"
   // Dagger2
   compile "com.google.dagger:dagger:${daggerVersion}"
   provided "com.google.dagger:dagger-compiler:${daggerVersion}"

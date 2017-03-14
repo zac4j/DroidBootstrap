@@ -1,25 +1,33 @@
 # DroidBootstrap
-Android Project Template
+Android Project Bootstrap
 
-#### Architecture
+## Project Architecture
 + MVP
 
-#### Dependency:
+## Dependencies:
 + Network:
- - Retrofit 2
+ - Retrofit2
  - OkHttp
 + Dependency Injection:
- - Dagger 2
+ - Dagger2
 + Async Job:
- - RxJava/RxAndroid
+ - RxJava2
 + Debug:
  - Stetho
 + Log
  - Timber
 + Crash Report
  - [Bugly][bugly]
-+ Statistic Service
- - [LeanCloud][lean]
+
+## Static Code Analysis Tools
++ [Checkstyle][checkstyle]
+> ./gradlew checkstyle
++ [PMD][pmd]
+> ./gradlew pmd
++ [FindBugs][findbugs]
+> ./gradlew findbugs
 
 [bugly]:https://bugly.qq.com/v2/
-[lean]:https://leancloud.cn/docs/android_statistics.html
+[checkstyle]:http://checkstyle.sourceforge.net/
+[pmd]:https://pmd.github.io/
+[findbugs]:http://findbugs.sourceforge.net/

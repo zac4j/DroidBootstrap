@@ -1,0 +1,89 @@
+/**
+ * Set up Checkstyle, Findbugs and PMD to perform extensive code analysis.
+ *
+ * Gradle tasks added:
+ * - checkstyle
+ * - findbugs
+ * - pmd
+ *
+ * The three tasks above are added as dependencies of the check task so running check will
+ * run all of them.
+ */
+
+apply plugin: 'checkstyle'
+apply plugin: 'findbugs'
+apply plugin: 'pmd'
+
+dependencies {
+  checkstyle 'com.puppycrawl.tools:checkstyle:7.6'
+}
+
+def configDir = "$project.rootDir/config";
+def reportDir = "$project.buildDir/reports"
+
+check.dependsOn 'checkstyle', 'findbugs', 'pmd'
+
+task checkstyle(type: Checkstyle, group: 'Verification', description: 'Runs code style checks') {
+  configFile file("$configDir/checkstyle.xml")
+  source 'src'
+  include '**/*.java'
+
+  reports {
+    xml.enabled = true
+    xml {
+      destination "$reportDir/checkstyle.xml"
+    }
+  }
+
+  classpath = files( )
+}
+
+task findbugs(type: FindBugs,
+    group: 'Verification',
+    description: 'Inspect java bytecode for bugs',
+    dependsOn: ['compileDebugSources','compileReleaseSources']) {
+
+  ignoreFailures = false
+  effort = "max"
+  reportLevel = "high"
+  excludeFilter = new File("$configDir/findbugs.xml")
+  classes = files("$project.rootDir/app/build/intermediates/classes")
+
+  source 'src'
+  include '**/*.java'
+  exclude '**/gen/**'
+
+  reports {
+    xml.enabled = true
+    html.enabled = false
+    xml {
+      destination "$reportDir/findbugs.xml"
+    }
+    html {
+      destination "$reportDir/findbugs.html"
+    }
+  }
+
+  classpath = files()
+}
+
+task pmd(type: Pmd, group: 'Verification', description: 'Inspect sourcecode for bugs') {
+  ruleSetFiles = files("$configDir/pmd.xml")
+  ignoreFailures = false
+  ruleSets = []
+
+  source 'src'
+  include '**/*.java'
+  exclude '**/gen/**'
+
+  reports {
+    xml.enabled = true
+    html.enabled = true
+    xml {
+      destination "$reportDir/pmd.xml"
+    }
+    html {
+      destination "$reportDir/pmd.html"
+    }
+  }
+}

@@ -32,8 +32,8 @@ ext {
   // dependency injection
   daggerVersion = "2.9"
   // async job
-  rxandroidVersion = "1.2.1"
-  rxjavaVersion = "1.1.7"
+  rxandroidVersion = "2.0.1"
+  rxjavaVersion = "2.0.7"
   // log
   timberVersion = "4.5.1"
   buglyVersion = "2.1.9"

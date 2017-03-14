@@ -3,9 +3,7 @@ package com.zac4j.droidbootstrap.ui.main;
 import com.zac4j.droidbootstrap.data.DataManager;
 import com.zac4j.droidbootstrap.di.PerConfig;
 import com.zac4j.droidbootstrap.ui.base.BasePresenter;
-import com.zac4j.droidbootstrap.util.RxUtils;
 import javax.inject.Inject;
-import rx.Subscription;
 
 /**
  * Main presenter
@@ -15,7 +13,6 @@ import rx.Subscription;
 public class MainPresenter extends BasePresenter<MainView> {
 
   private DataManager mDataManager;
-  private Subscription mSubscription;
 
   @Inject
   public MainPresenter(DataManager dataManager) {
@@ -28,6 +25,5 @@ public class MainPresenter extends BasePresenter<MainView> {
 
   @Override public void detach() {
     super.detach();
-    RxUtils.unsubscribe(mSubscription);
   }
 }

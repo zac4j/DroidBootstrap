@@ -22,6 +22,7 @@ import android.view.inputmethod.InputMethodManager;
 import java.io.Closeable;
 import java.io.IOException;
 import java.security.MessageDigest;
+import java.util.Locale;
 
 /**
  * Utilities
@@ -39,7 +40,7 @@ public class Utils {
       for (byte aByte : bytes) {
         sb.append(String.format("%02X", aByte));
       }
-      return sb.toString().toLowerCase();
+      return sb.toString().toLowerCase(Locale.getDefault());
     } catch (Exception exc) {
       return "";
     }
