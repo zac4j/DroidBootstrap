@@ -21,11 +21,14 @@ Android Project Bootstrap
 
 ## Static Code Analysis Tools
 + [Checkstyle][checkstyle]
-> ./gradlew checkstyle
+
+`./gradlew checkstyle`
 + [PMD][pmd]
-> ./gradlew pmd
+
+`./gradlew pmd`
 + [FindBugs][findbugs]
-> ./gradlew findbugs
+
+`./gradlew findbugs`
 
 [bugly]:https://bugly.qq.com/v2/
 [checkstyle]:http://checkstyle.sourceforge.net/
